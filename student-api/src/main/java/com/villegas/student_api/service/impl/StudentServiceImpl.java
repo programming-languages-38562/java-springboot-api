@@ -14,17 +14,17 @@ import com.villegas.student_api.service.StudentService;
 @Service
 public class StudentServiceImpl implements StudentService {
 
-    private final Map<Long, Student> studentMap = new HashMap<>();
-    private long studentCount = 1; 
+    private final Map<Long, Student> studentDB = new HashMap<>();
+    private long studentCount = 1L; 
 
     @Override
     public List<Student> getAllStudents() {
-        return new ArrayList<>(studentMap.values());
+        return new ArrayList<>(studentDB.values());
     }
 
     @Override
     public Optional<Student> getStudentById(Long id) {
-        return Optional.ofNullable(studentMap.get(id));
+        return Optional.ofNullable(studentDB.get(id));
     }
 
     @Override
@@ -32,22 +32,29 @@ public class StudentServiceImpl implements StudentService {
         if (student.getPkStudentId() == null) {
             student.setPkStudentId(studentCount++);
         }
-        studentMap.put(student.getPkStudentId(), student);
+        studentDB.put(student.getPkStudentId(), student);
         return student;
     }
 
     @Override
     public Student updateStudent(Long id, Student student) {
-        if (!studentMap.containsKey(id)) {
+        if (!studentDB.containsKey(id)) {
             return null;
-        }
-        student.setPkStudentId(id);
-        studentMap.put(id, student);
-        return student;
-    }
+        }        
+        Student existing = studentDB.get(id);
 
+        if (student.getName() != null) {
+            existing.setName(student.getName());
+        }
+        if (student.getCourse() != null) {
+            existing.setCourse(student.getCourse());
+        }
+
+        studentDB.put(id, existing);
+        return existing;
+    }
     @Override
     public boolean deleteStudent(Long id) {
-        return studentMap.remove(id) != null;
+        return studentDB.remove(id) != null;
     }
 }
