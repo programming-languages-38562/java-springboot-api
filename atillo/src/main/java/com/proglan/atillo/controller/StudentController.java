@@ -21,7 +21,9 @@ public class StudentController {
 
     @GetMapping("/students")
     public ResponseEntity<List<Student>> getAllStudents(){
-        return ResponseEntity.ok(studentService.getAllStudents());
+        List<Student> students = studentService.getAllStudents();
+
+        return students.isEmpty()? ResponseEntity.status(HttpStatus.NOT_FOUND).body(null) : ResponseEntity.ok(students);
     }
 
     @GetMapping("/students/{id}")
@@ -31,7 +33,10 @@ public class StudentController {
     }
 
     @PostMapping("/students")
-    public ResponseEntity<Student> addStudent(@RequestBody Student student){
+    public ResponseEntity<?> addStudent(@RequestBody Student student){
+        if(student.getName() == null || student.getCourse() == null || student.getName().isEmpty() || student.getCourse().isEmpty())
+            return ResponseEntity.badRequest().body("Required fields should be filled (name and course)");
+
         return ResponseEntity.status(HttpStatus.CREATED).body(studentService.addStudent(student));
     }
 
