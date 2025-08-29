@@ -10,9 +10,6 @@ public interface StudentService {
     // GET: /students
     // Success: 200 OK | Fail: 404 NOT FOUND
     List<Student> getAllStudents();
-
-    // GET: /students/{id}
-    // Success: 200 OK | Fail: 404 NOT FOUND
     Optional<Student> getStudentById(Long id);
 
     // POST: /students
