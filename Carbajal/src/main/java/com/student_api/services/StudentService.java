@@ -1,9 +1,9 @@
-package com.student_api.Carbajal;
+package com.student_api.services;
 
 import java.util.List;
 import java.util.Optional;
 
-import com.example.demo.model.Student;
+import com.student_api.model.Student;
 
 public interface StudentService {
    List<Student> getAllStudents();

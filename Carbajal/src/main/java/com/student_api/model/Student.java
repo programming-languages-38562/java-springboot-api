@@ -1,4 +1,4 @@
-package com.student_api.Carbajal;
+package com.student_api.model;
 
 public class Student {
    private long pkStudentID;

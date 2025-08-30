@@ -1,0 +1,5 @@
+com\student_api\controller\StudentController.class
+com\student_api\services\StudentService.class
+com\student_api\Carbajal\CarbajalApplication.class
+com\student_api\model\Student.class
+com\student_api\services\impl\StudentServiceImpl.class

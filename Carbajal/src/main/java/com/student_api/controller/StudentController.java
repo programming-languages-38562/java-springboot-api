@@ -1,4 +1,4 @@
-package com.student_api.Carbajal;
+package com.student_api.controller;
 
 import java.util.List;
 import java.util.Optional;
@@ -14,8 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.example.demo.model.Student;
-import com.example.demo.services.impl.StudentServiceImpl;
+import com.student_api.model.Student;
+import com.student_api.services.impl.StudentServiceImpl;
 
 @RestController
 @RequestMapping({"/api"})

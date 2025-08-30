@@ -1,4 +1,4 @@
-package com.student_api.Carbajal;
+package com.student_api.services.impl;
 
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -8,8 +8,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Service;
 
-import com.example.demo.model.Student;
-import com.example.demo.services.StudentService;
+import com.student_api.model.Student;
+import com.student_api.services.StudentService;
 
 @Service
 public class StudentServiceImpl implements StudentService {
