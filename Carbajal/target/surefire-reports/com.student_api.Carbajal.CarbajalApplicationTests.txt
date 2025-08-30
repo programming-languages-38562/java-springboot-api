@@ -1,0 +1,4 @@
+-------------------------------------------------------------------------------
+Test set: com.student_api.Carbajal.CarbajalApplicationTests
+-------------------------------------------------------------------------------
+Tests run: 1, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 1.867 s -- in com.student_api.Carbajal.CarbajalApplicationTests
