@@ -35,8 +35,7 @@ public class StudentController {
 
     @PostMapping
     public ResponseEntity<Student> addStudent(@RequestBody Student student) {
-        Student savedStudent = studentService.addStudent(student);
-        return ResponseEntity.ok(savedStudent);
+        return ResponseEntity.ok(student);
     }
 
     @PutMapping("/{id}")
@@ -74,3 +73,4 @@ public class StudentController {
         }
     }
 }
+
