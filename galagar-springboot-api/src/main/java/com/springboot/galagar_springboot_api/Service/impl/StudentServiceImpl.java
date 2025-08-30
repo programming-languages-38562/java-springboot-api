@@ -1,4 +1,4 @@
-package com.springboot.galagar_springboot_api.Service;
+package com.springboot.galagar_springboot_api.Service.impl;
 
 import java.util.*;
 import org.springframework.stereotype.Service;
