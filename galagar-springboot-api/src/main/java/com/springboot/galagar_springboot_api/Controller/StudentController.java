@@ -35,8 +35,9 @@ public class StudentController {
 
     @PostMapping
     public ResponseEntity<Student> addStudent(@RequestBody Student student) {
-        return ResponseEntity.ok(student);
+         return ResponseEntity.ok(studentService.addStudent(student));
     }
+    
 
     @PutMapping("/{id}")
     public ResponseEntity<?> updateStudent(@PathVariable long id, @RequestBody Student updatedData) {
@@ -73,4 +74,5 @@ public class StudentController {
         }
     }
 }
+
 
