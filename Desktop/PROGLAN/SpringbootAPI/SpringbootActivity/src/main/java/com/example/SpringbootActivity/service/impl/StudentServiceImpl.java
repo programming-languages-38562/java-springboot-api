@@ -15,6 +15,7 @@ import com.example.SpringbootActivity.service.StudentService;
 public class StudentServiceImpl implements StudentService {
 
     private final Map<Long, Student> studentDB = new HashMap<>();
+    private Long pkId = 1L;
 
     @Override
     public List<Student> getAllStudents() {
@@ -28,6 +29,10 @@ public class StudentServiceImpl implements StudentService {
 
     @Override
     public Student addStudent(Student student) {
+        
+        if(student.getPkStudentID() == 0){
+            student.setPkStudentID(pkId++);
+        }
         studentDB.put(student.getPkStudentID(), student);
         return student;
     }
