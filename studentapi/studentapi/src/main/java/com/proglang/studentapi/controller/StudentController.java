@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
@@ -35,12 +36,12 @@ public class StudentController  {
     }
 
     @PostMapping("/students")
-    public Student addStudent(Student student) {
+    public Student addStudent(@RequestBody Student student) {
         return studentService.addStudent(student);
     }
 
-    @PutMapping("/students")
-    public Student updateStudent(Long ID, Student student) {
+    @PutMapping("/students/{ID}")
+    public Student updateStudent(@PathVariable Long ID, @RequestBody Student student) {
          if (studentService.updateStudent(ID, student) == null) {
              throw new IllegalArgumentException("Student not found");
          }
